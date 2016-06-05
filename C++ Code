@@ -1,0 +1,74 @@
+//efficency calculator for 2d large cutters in inches cubed/hour including rotation time.
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{//Enter speed, and depth of pass compared between two different approaches
+
+int speed1;
+int speed2;
+
+float depth1;
+float depth2;
+
+float width1;
+float width2;
+
+float volume1minute;
+float volume2minute;
+
+float volume1sec;
+float volume2sec;
+
+int rotationint1;
+int rotationint2;
+
+float rotationpercent1;
+float rotationpercent2;
+
+// input variables;
+
+cout << "Pleast input the speed of cutter 1:";
+cin >> speed1;
+
+cout << "Pleast input the depth of cut for cutter 1:";
+cin >> depth1;
+
+cout << "Please input the width of cutter number 1:";
+cin >> width1;
+
+cout << "Please input the time between rotations in minutes for cutter 1:";
+cin >> rotationint1;
+
+cout << "Pleast input the speed of cutter 2:";
+cin >> speed2;
+
+cout << "Pleast input the depth of cut for cutter 2:";
+cin >> depth2;
+
+cout << "Please input the width of cutter number 2:";
+cin >> width2;
+
+cout << "Please input the time between rotations in minutes for cutter 2:";
+cin >> rotationint2;
+
+// calculated inches cubed per minute
+volume1minute = speed1 * width1 * depth1;
+volume2minute = speed2 * width2 * depth2;
+
+// find what fraction of each minute of runtime will be dedicated to rotating inserts and convert to a percentage
+rotationpercent1 = rotationint1 / 60;
+rotationpercent2 = rotationint2 / 60;
+
+volume1sec = volume1minute - (volume1minute * rotationpercent1);
+volume2sec = volume2minute - (volume2minute * rotationpercent2);
+
+//determine which cutter is most efficient with rotation interval taken into account
+if (volume1sec > volume2sec)
+	cout << "Cutter 1 is more efficient";
+else if (volume1sec < volume2sec)
+	cout << "Cutter 2 is more efficient";
+
+return 0;
+}
