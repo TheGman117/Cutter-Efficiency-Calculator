@@ -1,2 +1,3 @@
 # Cutter-Efficiency-Calculator
-Cutter efficiency calculator for CNC machining.
+Cutter feedrate and efficiency calculator for CNC machining.
+Initial developement is focused on Imperial measurements.
